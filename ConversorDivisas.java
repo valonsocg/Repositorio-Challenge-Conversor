@@ -22,7 +22,7 @@ public class ConversorDivisas {
         do {
             Map<Integer, String> codigoDvisas = crearMapaDivisas();
 
-            System.out.println("Bienvenido al Convertidor de Divisas!");
+            System.out.println("Bienvenido al Conversor de Divisas!");
 
             System.out.println("Ingrese la divisa de origen: ");
             String divisaOrigen = obtenerOpcionValida(scanner, codigoDvisas);
@@ -36,17 +36,17 @@ public class ConversorDivisas {
             sendHttpGETRequest(divisaOrigen, divisaDestino, monto);
 
             System.out.println("Desea hacer otra conversion?");
-            System.out.println("1.Si \t 2.No");
-            if (scanner.nextInt() != 1) {
+            System.out.println("1.Si \t 2.Cualquier otra tecla terminara el programa");
+            String opcion = scanner.next();
+            scanner.nextLine();
+            if (!opcion.equals("1")) {
                 continuar = false;
                 scanner.close();
-            } else {
-                scanner.nextLine();
             }
 
         } while (continuar);
 
-        System.out.println("Gracias por usar el convertidor de Divisas!");
+        System.out.println("Gracias por usar el conversor de Divisas!");
     }
 
     private static Map<Integer, String> crearMapaDivisas() {
